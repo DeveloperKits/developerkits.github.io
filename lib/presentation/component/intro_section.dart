@@ -5,35 +5,40 @@ class IntroSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Icon(Icons.arrow_back, size: 24, color: Colors.white),
-          const SizedBox(width: 8),
-          const Text(
-            'Dev By Akash',
-            style: TextStyle(
-              fontSize: 18,
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
+    return Container(
+      width: double.infinity,
+      color: const Color(0xFFF5F5F5),
+      padding: const EdgeInsets.symmetric(vertical: 80, horizontal: 20),
+      child: Center(
+        child: Column(
+          children: [
+            ClipOval(
+              child: Image.asset(
+                'assets/images/profile.jpg', // Use your demo image
+                width: 120,
+                height: 120,
+                fit: BoxFit.cover,
+              ),
             ),
-          ),
-          const Spacer(),
-
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-            decoration: BoxDecoration(
-              color: Colors.green.shade800,
-              borderRadius: BorderRadius.circular(20),
+            const SizedBox(height: 30),
+            const Text(
+              'Akash Das',
+              style: TextStyle(
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFF111111),
+              ),
             ),
-            child: const Text(
-              'Open for collaborations',
-              style: TextStyle(color: Colors.white, fontSize: 14),
+            const SizedBox(height: 10),
+            const Text(
+              'Mobile App Developer | Flutter Enthusiast',
+              style: TextStyle(
+                fontSize: 16,
+                color: Colors.black54,
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
