@@ -7,49 +7,53 @@ class IntroSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
-      height: 130,
+      height: 150,
       decoration: const BoxDecoration(
         gradient: RadialGradient(
           colors: [Color(0xFF0C0F0D), Color(0xFF121B16)],
           center: Alignment.topLeft,
         ),
+        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
       ),
       padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 20),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           // Left Side (Text)
-          const Column(
+          Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Row(
                 children: [
-                  Text(
+                  const Text(
                     'Hi, I am',
                     style: TextStyle(
                       color: Colors.white70,
                       fontSize: 20,
                     ),
                   ),
-                  SizedBox(width: 10),
-                  Text(
-                    'Akash Das',
-                    style: TextStyle(
-                      fontSize: 36,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.white,
+                  const SizedBox(width: 10),
+                  Container(
+                    margin: const EdgeInsets.only(bottom: 10),
+                    child: const Text(
+                      'Akash Das',
+                      style: TextStyle(
+                        fontSize: 36,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
                     ),
                   ),
-                  SizedBox(width: 10),
-                  Text(
+                  const SizedBox(width: 10),
+                  const Text(
                     '👋',
                     style: TextStyle(fontSize: 30),
                   ),
                 ],
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
 
-              Text.rich(
+              const Text.rich(
                 TextSpan(
                   text: 'Mobile Application Developer crafting exceptional digital experiences with ',
                   style: TextStyle(color: Colors.white70, fontSize: 16),
