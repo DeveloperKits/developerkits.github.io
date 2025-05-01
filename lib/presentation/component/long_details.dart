@@ -5,138 +5,211 @@ class LongDetailsSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(24.0),
+    return Container(
+      margin: const EdgeInsets.only(right: 20),
+      padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+      decoration: BoxDecoration(
+        color: const Color(0xFF0D0D0D),
+        borderRadius: BorderRadius.circular(10),
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          // Long intro text
           RichText(
             text: TextSpan(
-              style: const TextStyle(color: Colors.white, fontSize: 18),
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                height: 1.6,
+              ),
               children: [
-                _highlight("A ", Colors.white),
-                _tag("Software Developer", Colors.blue),
-                _highlight(" who creates seamless, scalable, and visually stunning mobile applications."),
+                const TextSpan(text: 'A '),
+                _linkText('Software Developer'),
+                const TextSpan(
+                    text:
+                    ' who creates seamless, scalable, and visually stunning web and mobile applications.\n\nWith expertise in '),
+                _techBox('React.js'),
+                const TextSpan(text: ', '),
+                _techBox('Next.js'),
+                const TextSpan(text: ', '),
+                _techBox('Node.js'),
+                const TextSpan(text: ' and alot '),
+                _linkText('more'),
+                const TextSpan(
+                    text:
+                    ', I blend functionality with aesthetics to deliver impactful solutions. Known for my creative '),
+                _linkText('problem-solving'),
+                const TextSpan(
+                    text:
+                    ', I bridge the gap between frontend and backend with precision, ensuring every detail contributes to an exceptional user experience. who crafts seamless, scalable web and mobile applications.'),
               ],
             ),
           ),
-          const SizedBox(height: 16),
-          RichText(
-            text: TextSpan(
-              style: const TextStyle(color: Colors.white70, fontSize: 16),
-              children: [
-                _highlight("With expertise in "),
-                _tag("Flutter", Colors.green),
-                _highlight(", "),
-                _tag("Firebase", Colors.greenAccent),
-                _highlight(" and "),
-                _tag("Bloc", Colors.tealAccent),
-                _highlight(
-                    ", I blend functionality with aesthetics to deliver impactful solutions."),
-                _highlight(" Known for my creative "),
-                _tag("problem-solving", Colors.lightBlue),
-                _highlight(
-                    ", I bridge the gap between frontend and backend with precision, ensuring every detail contributes to an exceptional user experience."),
-              ],
+          const SizedBox(height: 30),
+
+          // Skills, Hobbies, Goal Cards
+          const Wrap(
+            spacing: 20,
+            runSpacing: 20,
+            children: [
+              _InfoCard(
+                icon: Icons.code_outlined,
+                iconColor: Colors.purpleAccent,
+                title: 'Skills',
+                description:
+                'Building responsive UIs with React, Next.js, and React Native.',
+              ),
+              _InfoCard(
+                icon: Icons.sports_esports,
+                iconColor: Colors.greenAccent,
+                title: 'Hobbies',
+                description: 'Dominating in Tekken or scoring goals in FIFA. ⚽🎮',
+              ),
+              _InfoCard(
+                icon: Icons.rocket_launch,
+                iconColor: Colors.blueAccent,
+                title: 'Goal',
+                description:
+                'Let\'s team up and create something amazing together. 🚀',
+              ),
+            ],
+          ),
+          const SizedBox(height: 20),
+
+          // Batman quote
+          const Padding(
+            padding: EdgeInsets.only(top: 20),
+            child: Text.rich(
+              TextSpan(
+                style: TextStyle(color: Colors.white70, fontStyle: FontStyle.italic),
+                children: [
+                  TextSpan(text: 'P.S. I\'m not really '),
+                  WidgetSpan(
+                    child: _TagBox(text: 'Batman', color: Colors.orange),
+                  ),
+                  TextSpan(text: ', but I might be the '),
+                  WidgetSpan(
+                    child: _TagBox(text: 'hero', color: Colors.deepOrange),
+                  ),
+                  TextSpan(text: ' your project needs! 🙋‍♂️'),
+                ],
+              ),
             ),
-          ),
-          const SizedBox(height: 24),
-
-          const Row(
-            children: [
-              Expanded(child: _InfoCard(title: "⚙ Skills", text: "Building performant Flutter UIs, Bloc architecture, Firebase integration")),
-              SizedBox(width: 12),
-              Expanded(child: _InfoCard(title: "🕹 Hobbies", text: "Tech tinkering, traveling, photography")),
-              SizedBox(width: 12),
-              Expanded(child: _InfoCard(title: "🎯 Goal", text: "Let’s create something awesome together.")),
-            ],
-          ),
-          const SizedBox(height: 16),
-          const Text(
-            "P.S. I’m not really ",
-            style: TextStyle(color: Colors.white70),
-          ),
-
-          const Row(
-            children: [
-              _TagLabel(label: "Batman", color: Colors.amber),
-              SizedBox(width: 4),
-              Text(" but I might be the ", style: TextStyle(color: Colors.white70)),
-              _TagLabel(label: "hero", color: Colors.orange),
-              Text(" your project needs! 🧑‍💻", style: TextStyle(color: Colors.white70)),
-            ],
           ),
         ],
       ),
     );
   }
 
-  TextSpan _highlight(String text, [Color color = Colors.white70]) {
-    return TextSpan(
-      text: text,
-      style: TextStyle(color: color, height: 1.5),
+  static WidgetSpan _techBox(String text) {
+    return WidgetSpan(
+      alignment: PlaceholderAlignment.middle,
+      child: Container(
+        padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+        margin: const EdgeInsets.symmetric(horizontal: 2),
+        decoration: BoxDecoration(
+          color: Colors.greenAccent.withOpacity(0.15),
+          borderRadius: BorderRadius.circular(6),
+        ),
+        child: Text(
+          text,
+          style: const TextStyle(
+            color: Colors.greenAccent,
+            fontWeight: FontWeight.w500,
+            fontSize: 14,
+          ),
+        ),
+      ),
     );
   }
 
-  TextSpan _tag(String text, Color color) {
+  static TextSpan _linkText(String text) {
     return TextSpan(
-      text: ' $text ',
-      style: TextStyle(
-        color: color,
-        fontWeight: FontWeight.bold,
-        backgroundColor: color.withOpacity(0.1),
+      text: text,
+      style: const TextStyle(
+        color: Color(0xFF42A5F5),
+        wordSpacing: 2,
+        decoration: TextDecoration.underline,
       ),
     );
   }
 }
 
 class _InfoCard extends StatelessWidget {
+  final IconData icon;
+  final Color iconColor;
   final String title;
-  final String text;
+  final String description;
 
-  const _InfoCard({required this.title, required this.text});
+  const _InfoCard({
+    required this.icon,
+    required this.iconColor,
+    required this.title,
+    required this.description,
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(16),
+      width: 280,
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: Colors.grey.shade900,
-        borderRadius: BorderRadius.circular(12),
+        color: const Color(0xFF1A1A1A),
+        borderRadius: BorderRadius.circular(10),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(title,
-              style: const TextStyle(
-                  fontSize: 16, fontWeight: FontWeight.bold, color: Colors.white)),
+          Row(
+            children: [
+              Icon(icon, color: iconColor, size: 22),
+              const SizedBox(width: 10),
+              Text(
+                title,
+                style: TextStyle(
+                  color: iconColor,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ],
+          ),
+
           const SizedBox(height: 8),
-          Text(text, style: const TextStyle(color: Colors.white70)),
+          Text(
+            description,
+            style: const TextStyle(color: Colors.white70, fontSize: 14),
+          ),
         ],
       ),
     );
   }
 }
 
-class _TagLabel extends StatelessWidget {
-  final String label;
+class _TagBox extends StatelessWidget {
+  final String text;
   final Color color;
 
-  const _TagLabel({required this.label, required this.color});
+  const _TagBox({required this.text, required this.color});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+      margin: const EdgeInsets.symmetric(horizontal: 4),
       decoration: BoxDecoration(
-        color: color.withOpacity(0.2),
-        borderRadius: BorderRadius.circular(6),
+        color: color,
+        borderRadius: BorderRadius.circular(4),
       ),
-      child: Text(label,
-          style: TextStyle(
-            color: color,
-            fontWeight: FontWeight.bold,
-          )),
+      child: Text(
+        text,
+        style: const TextStyle(
+          color: Colors.black,
+          fontSize: 13,
+          fontWeight: FontWeight.w600,
+        ),
+      ),
     );
   }
 }
