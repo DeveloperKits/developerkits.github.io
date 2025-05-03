@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/presentation/component/intro_section.dart';
 import 'package:portfolio/presentation/component/long_details.dart';
 import 'package:portfolio/presentation/component/photo_section.dart';
+import 'package:portfolio/presentation/component/skill_animation.dart';
 import 'package:portfolio/presentation/component/skill_section.dart';
 import 'package:portfolio/presentation/helper/GridPainter.dart';
 
@@ -27,7 +28,7 @@ class MainView extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  margin: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
+                  margin: const EdgeInsets.symmetric(vertical: 50, horizontal: 20),
                   decoration: BoxDecoration(
                     color: Colors.grey.shade900,
                     borderRadius: BorderRadius.circular(20),
@@ -41,7 +42,8 @@ class MainView extends StatelessWidget {
                           Expanded(flex: 3, child: LongDetailsSection()),
                         ],
                       ),
-                      //SkillSection(),
+                      SkillSection(),
+                      SkillAnimation(),
                     ],
                   ),
                 ),

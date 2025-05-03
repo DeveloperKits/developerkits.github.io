@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:portfolio/presentation/helper/WelcomeDialog.dart';
 import 'package:portfolio/presentation/model/skill_item.dart';
 
 class SkillAnimation extends StatefulWidget {
@@ -33,6 +34,9 @@ class _SkillAnimationState extends State<SkillAnimation> {
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      showWelcomeDialog(context);
+    });
     _startAutoScroll();
   }
 
