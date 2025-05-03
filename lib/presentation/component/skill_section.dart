@@ -17,8 +17,8 @@ class SkillSection extends StatelessWidget {
       const _SkillItem(name: "Node.js", icon: Icons.developer_mode),
       const _SkillItem(name: "GraphQL", icon: Icons.graphic_eq),
       const _SkillItem(name: "AWS", icon: Icons.cloud),
-      const _SkillItem(name: "PostgreSQL", icon: Icons.storage),
-      const _SkillItem(name: "MongoDB", icon: Icons.dataset),
+      //const _SkillItem(name: "PostgreSQL", icon: Icons.storage),
+      //const _SkillItem(name: "MongoDB", icon: Icons.dataset),
     ];
 
     return Padding(

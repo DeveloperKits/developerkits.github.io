@@ -70,6 +70,7 @@ class IntroSection extends StatelessWidget {
           // Right Side (Collaboration Button)
           Container(
             decoration: BoxDecoration(
+              border: Border.all(color: Colors.grey.shade600, width: 0.5),
               color: const Color(0xFF1A1F1D),
               borderRadius: BorderRadius.circular(20),
             ),

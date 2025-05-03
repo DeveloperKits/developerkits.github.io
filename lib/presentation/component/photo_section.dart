@@ -6,12 +6,14 @@ class PhotoSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(24.0),
+      padding: const EdgeInsets.only(top: 20.0, left: 40.0, bottom: 20.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Profile Image Section
           Container(
+            width: 240,
+            height: 300,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
               color: Colors.grey.shade900,
@@ -19,7 +21,7 @@ class PhotoSection extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(12),
               child: Image.asset(
-                'assets/images/photo/my_photo.jpg',
+                'assets/images/photo/my_photo.png',
                 width: 240,
                 height: 300,
                 fit: BoxFit.cover,
@@ -32,7 +34,7 @@ class PhotoSection extends StatelessWidget {
           // Button Section
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.grey.shade900,
+              backgroundColor: Colors.grey.shade800,
               foregroundColor: Colors.white,
               padding: const EdgeInsets.symmetric(
                 horizontal: 32,
@@ -40,6 +42,7 @@ class PhotoSection extends StatelessWidget {
               ),
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(12),
+                side: const BorderSide(color: Colors.grey, width: 0.5),
               ),
               elevation: 0,
             ),

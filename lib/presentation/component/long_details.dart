@@ -6,7 +6,7 @@ class LongDetailsSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(right: 20),
+      margin: const EdgeInsets.only(right: 40, top: 20, left: 20,),
       padding: const EdgeInsets.symmetric(vertical: 30, horizontal: 20),
       decoration: BoxDecoration(
         color: const Color(0xFF0D0D0D),
@@ -25,24 +25,22 @@ class LongDetailsSection extends StatelessWidget {
               ),
               children: [
                 const TextSpan(text: 'A '),
-                _linkText('Software Developer'),
+                _linkText('Mobile Application Developer'),
                 const TextSpan(
                     text:
-                    ' who creates seamless, scalable, and visually stunning web and mobile applications.\n\nWith expertise in '),
-                _techBox('React.js'),
+                    ' who creates seamless, scalable, and visually stunning mobile applications.\nWith proven experience in '),
+                _techBox('Design Patterns'),
                 const TextSpan(text: ', '),
-                _techBox('Next.js'),
+                _techBox('MVVM'),
                 const TextSpan(text: ', '),
-                _techBox('Node.js'),
-                const TextSpan(text: ' and alot '),
+                _techBox('OOP'),
+                const TextSpan(text: ', '),
+                _techBox('DI'),
+                const TextSpan(text: ' and '),
                 _linkText('more'),
                 const TextSpan(
                     text:
-                    ', I blend functionality with aesthetics to deliver impactful solutions. Known for my creative '),
-                _linkText('problem-solving'),
-                const TextSpan(
-                    text:
-                    ', I bridge the gap between frontend and backend with precision, ensuring every detail contributes to an exceptional user experience. who crafts seamless, scalable web and mobile applications.'),
+                    ', with a strong eye for clean architecture and user-focused design. Quick learner, team player, and always ready to take on new challenges to build smart, scalable solutions.\n\nI believe that life is a mystery to solve, not a problem to resolve.'),
               ],
             ),
           ),
@@ -58,13 +56,13 @@ class LongDetailsSection extends StatelessWidget {
                 iconColor: Colors.purpleAccent,
                 title: 'Skills',
                 description:
-                'Building responsive UIs with React, Next.js, and React Native.',
+                'Building mobile apps with Android(Java/Kotlin), and Flutter.',
               ),
               _InfoCard(
                 icon: Icons.sports_esports,
                 iconColor: Colors.greenAccent,
                 title: 'Hobbies',
-                description: 'Dominating in Tekken or scoring goals in FIFA. ⚽🎮',
+                description: 'Solo Traveling or scoring goals in E-Football. ⚽🎮',
               ),
               _InfoCard(
                 icon: Icons.rocket_launch,
@@ -152,7 +150,7 @@ class _InfoCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 280,
+      width: 290,
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: const Color(0xFF1A1A1A),
