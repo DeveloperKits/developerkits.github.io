@@ -5,42 +5,78 @@ class SkillSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<_SkillItem> frontendSkills = [
-      const _SkillItem(name: "Next.js", icon: Icons.web),
-      const _SkillItem(name: "Tailwind", icon: Icons.color_lens),
-      const _SkillItem(name: "Firebase", icon: Icons.fireplace),
-      const _SkillItem(name: "Redux", icon: Icons.sync_alt),
-      const _SkillItem(name: "Framer", icon: Icons.movie_creation),
+    final List<IconData> lanSkills = [
+      Icons.code,
+      Icons.code,
+      Icons.code,
+      Icons.code,
+      Icons.code,
     ];
 
-    final List<_SkillItem> backendSkills = [
-      const _SkillItem(name: "Node.js", icon: Icons.developer_mode),
-      const _SkillItem(name: "GraphQL", icon: Icons.graphic_eq),
-      const _SkillItem(name: "AWS", icon: Icons.cloud),
-      //const _SkillItem(name: "PostgreSQL", icon: Icons.storage),
-      //const _SkillItem(name: "MongoDB", icon: Icons.dataset),
+    final List<IconData> techSkills = [
+      Icons.android,
+      Icons.flutter_dash,
+      Icons.cloud,
+      Icons.storage,
+      Icons.design_services,
     ];
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 32),
+      padding: const EdgeInsets.symmetric(horizontal: 40.0, vertical: 30.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _skillHeader("Frontend Skills"),
-          const SizedBox(height: 16),
-          Wrap(
-            spacing: 12,
-            runSpacing: 12,
-            children: frontendSkills.map((e) => _SkillCard(skill: e)).toList(),
+
+          Flexible(
+            flex: 1,
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+              decoration: BoxDecoration(
+                color: Colors.grey.shade800,
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: Colors.grey.shade600, width: 0.5),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  _skillHeader("Language Skills"),
+                  const SizedBox(height: 16),
+                  Wrap(
+                    spacing: 12,
+                    runSpacing: 12,
+                    children: lanSkills.map((e) => _SkillCard(icon: e)).toList(),
+                  ),
+                ],
+              ),
+            ),
           ),
-          const SizedBox(height: 32),
-          _skillHeader("Backend Skills"),
-          const SizedBox(height: 16),
-          Wrap(
-            spacing: 12,
-            runSpacing: 12,
-            children: backendSkills.map((e) => _SkillCard(skill: e)).toList(),
+
+          const SizedBox(width: 32),
+
+          Flexible(
+            flex: 1,
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
+              decoration: BoxDecoration(
+                color: Colors.grey.shade800,
+                borderRadius: BorderRadius.circular(10),
+                border: Border.all(color: Colors.grey.shade600, width: 0.5),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Wrap(
+                    spacing: 12,
+                    runSpacing: 12,
+                    children: techSkills.map((e) => _SkillCard(icon: e)).toList(),
+                  ),
+                  const SizedBox(height: 16),
+                  _skillHeader("Tech Skills"),
+                ],
+              ),
+            ),
           ),
+
         ],
       ),
     );
@@ -58,36 +94,22 @@ class SkillSection extends StatelessWidget {
   }
 }
 
-class _SkillItem {
-  final String name;
-  final IconData icon;
-
-  const _SkillItem({required this.name, required this.icon});
-}
 
 class _SkillCard extends StatelessWidget {
-  final _SkillItem skill;
+  final IconData icon;
 
-  const _SkillCard({required this.skill});
+  const _SkillCard({required this.icon});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+      padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 15),
       decoration: BoxDecoration(
-        color: Colors.grey.shade900,
-        borderRadius: BorderRadius.circular(12),
+        color: Colors.grey.shade700,
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: Colors.grey.shade600, width: 0.5),
       ),
-      child: Row(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Icon(skill.icon, color: Colors.white, size: 20),
-          const SizedBox(width: 8),
-          Text(skill.name,
-              style: const TextStyle(
-                  color: Colors.white70, fontWeight: FontWeight.w500)),
-        ],
-      ),
+      child: Icon(icon, color: Colors.white, size: 20,),
     );
   }
 }
