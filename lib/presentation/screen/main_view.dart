@@ -41,7 +41,7 @@ class MainView extends StatelessWidget {
                           Expanded(flex: 3, child: LongDetailsSection()),
                         ],
                       ),
-                      SkillSection(),
+                      //SkillSection(),
                     ],
                   ),
                 ),

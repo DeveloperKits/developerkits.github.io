@@ -47,7 +47,7 @@ class LongDetailsSection extends StatelessWidget {
           const SizedBox(height: 30),
 
           // Skills, Hobbies, Goal Cards
-          /*const Wrap(
+          const Wrap(
             spacing: 20,
             runSpacing: 20,
             children: [
@@ -73,7 +73,7 @@ class LongDetailsSection extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(height: 20),*/
+          const SizedBox(height: 20),
 
           // Batman quote
           const Padding(
