@@ -9,12 +9,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-      - name: Setup Flutter with FVM
+      - name: Set up Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version-file: .fvm/fvm_config.json  # Automatically uses FVM version
+          flutter-version: '3.29.3' # Replace with target version
+
+      - name: Install dependencies
+        run: flutter pub get
 
       - run: flutter pub get
       - run: flutter build web --base-href=/developerkits.github.io/  # Replace with your repo name
