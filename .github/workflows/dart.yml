@@ -1,16 +1,26 @@
-name: Gh-Pages
+name: Deploy Flutter Web to GitHub Pages (FVM)
 
 on:
   push:
-    branches: [master]
+    branches: [master] # or [main] depending on your default branch
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2 # Only works with v2
-      - uses: subosito/flutter-action@v1
-      - uses: bluefireteam/flutter-gh-pages@v7
+      - uses: actions/checkout@v2
+
+      - name: Setup Flutter with FVM
+        uses: subosito/flutter-action@v2
         with:
-          baseHref: /developerkits.github.io/
+          flutter-version-file: .fvm/fvm_config.json  # Automatically uses FVM version
+
+      - run: flutter pub get
+      - run: flutter build web --base-href=/developerkits.github.io/  # Replace with your repo name
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./build/web
