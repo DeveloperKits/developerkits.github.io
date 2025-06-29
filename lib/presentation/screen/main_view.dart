@@ -2,8 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/presentation/component/intro_section.dart';
 import 'package:portfolio/presentation/component/long_details.dart';
 import 'package:portfolio/presentation/component/photo_section.dart';
+import 'package:portfolio/presentation/component/projects_section.dart';
 import 'package:portfolio/presentation/component/skill_animation.dart';
 import 'package:portfolio/presentation/component/skill_section.dart';
+import 'package:portfolio/presentation/component/work_experience_section.dart';
 import 'package:portfolio/presentation/helper/GridPainter.dart';
 
 class MainView extends StatelessWidget {
@@ -43,6 +45,8 @@ class MainView extends StatelessWidget {
                         ],
                       ),
                       SkillSection(),
+                      ProjectsSection(),
+                      WorkExperienceSection(), // Added WorkExperienceSection
                       SkillAnimation(),
                     ],
                   ),
